@@ -1,5 +1,5 @@
 import './styles/global.scss';
-import Home from './pages/Home';
+import Home from './Pages/Home';
 
 const App = () => {
   return (
