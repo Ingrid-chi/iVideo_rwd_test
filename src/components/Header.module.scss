@@ -1,0 +1,68 @@
+@import '../styles/variables';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: $bg-color;
+  position: relative;
+
+  .logo {
+    // font-size: 24px;
+    // font-weight: bold;
+    // text-align: center;
+    width: 250px;
+  }
+
+  .auth {
+    display: flex;
+    gap: 10px;
+
+    .login,
+    .signup {
+      padding: 8px 16px;
+      border: 1px solid $text-color;
+      border-radius: 4px;
+      text-decoration: none;
+      color: $text-color;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $bg-color;
+      }
+    }
+
+    .signup {
+      background-color: $text-color;
+      color: white;
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    // flex-direction: column;
+    // align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: $bg-color;
+    position: relative;
+
+    .auth {
+      margin-top: 10px;
+      // flex-direction: column;
+      gap: 10px;
+
+      .login,
+      .signup {
+        padding: 4px 8px;
+        font-size: 14px;
+      }
+    }
+
+    .logo {
+      width: 120px;
+    }
+  }
+}

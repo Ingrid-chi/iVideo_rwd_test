@@ -1,0 +1,6 @@
+// 常用 Mixin
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,104 @@
+@import '../styles/variables';
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+
+    div {
+      width: 25px;
+      height: 3px;
+      background-color: $text-color;
+      margin: 5px 0;
+    }
+  }
+
+  .links {
+    display: flex;
+    gap: 15px;
+
+    .dropdown {
+      position: relative;
+
+      &-toggle {
+        cursor: pointer;
+
+        &:hover + .dropdown-menu {
+          display: block;
+          z-index: 2;
+        }
+      }
+
+      &-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        border: 1px solid #ddd;
+        padding: 10px;
+        list-style: none;
+        width: max-content;
+
+        li {
+          padding: 8px 12px;
+
+          &:hover {
+            background-color: $bg-color;
+          }
+        }
+      }
+    }
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background-color: $bg-color;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  .mobile-menu.active {
+    display: flex;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    // justify-content: flex-end;
+
+    .links {
+      display: none;
+    }
+
+    .hamburger {
+      display: block;
+    }
+  }
+
+  @media (min-width: $mobile-breakpoint) {
+    .mobile-menu {
+      display: none !important;
+    }
+
+    .links {
+      display: flex !important;
+    }
+  }
+}

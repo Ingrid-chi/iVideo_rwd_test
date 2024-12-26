@@ -1,0 +1,111 @@
+@import '../styles/variables';
+
+.products {
+  margin: 20px auto;
+  padding: 0 20px;
+  max-width: 1200px;
+
+  .section {
+    margin-bottom: 30px;
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      cursor: pointer;
+
+      .icon {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $text-color;
+        border-radius: 50%;
+        font-size: 14px;
+
+        // 隱藏展開圖示（桌面版）
+        display: none;
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+
+      .product {
+        text-align: center;
+
+        .image {
+          width: 100%;
+          height: 150px;
+          background-color: #ddd;
+          margin-bottom: 10px;
+        }
+
+        .name {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+
+        .description {
+          font-size: 14px;
+          color: #666;
+        }
+      }
+    }
+
+    .mobile-list {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+
+      .product {
+        text-align: center;
+
+        .image {
+          width: 100%;
+          height: 150px;
+          background-color: #ddd;
+          margin-bottom: 10px;
+        }
+
+        .name {
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+
+        .description {
+          font-size: 12px;
+          color: #666;
+        }
+      }
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      .title {
+        .icon {
+          display: flex; // 手機版顯示展開圖示
+        }
+      }
+
+      .grid {
+        display: none;
+      }
+
+      .mobile-list {
+        display: none;
+
+        &.active {
+          display: flex;
+        }
+      }
+    }
+  }
+}
