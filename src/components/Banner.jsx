@@ -1,22 +1,25 @@
 import { useState } from 'react';
 import styles from './Banner.module.scss';
+import banner_1 from '../assets/banners/2024_12_6_christmas_event_1272_520.jpg';
+import banner_2 from '../assets/banners/2023_03_14_可儲值上網卡-Banner_1272_520.jpg';
+import banner_3 from '../assets/banners/2023_03_01_globalpickup_1272_520.jpg';
 
 const Banner = () => {
   const slides = [
     {
       id: 1,
       content: 'Banner 1',
-      src: '/src/assets/banners/2024_12_6_christmas_event_1272_520.jpg',
+      src: banner_1,
     },
     {
       id: 2,
       content: 'Banner 2',
-      src: '/src/assets/banners/2023_03_14_可儲值上網卡-Banner_1272_520.jpg',
+      src: banner_2,
     },
     {
       id: 3,
       content: 'Banner 3',
-      src: '/src/assets/banners/2023_03_01_globalpickup_1272_520.jpg',
+      src: banner_3,
     },
   ];
 
