@@ -28,30 +28,61 @@
 
       &-toggle {
         cursor: pointer;
+        padding: 4px 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        &:hover + .dropdown-menu {
-          display: block;
-          z-index: 2;
+        .arrow {
+          display: none;
+          margin-left: 10px;
+          font-size: 12px;
+          cursor: pointer;
+        }
+
+        &:hover {
+          font-weight: 700;
+          color: rgb(45, 91, 230);
         }
       }
 
       &-menu {
         display: none;
         position: absolute;
-        top: 100%;
+        top: 100%; /* 保持緊貼 toggle */
         left: 0;
+        margin: 0; /* 確保沒有多餘空間 */
+        padding: 0;
         background-color: white;
         border: 1px solid #ddd;
-        padding: 10px;
+        // padding: 10px;
         list-style: none;
         width: max-content;
+        z-index: 2;
+        font-weight: 500;
+        color: #000;
 
         li {
           padding: 8px 12px;
 
           &:hover {
-            background-color: $bg-color;
+            color: rgb(45, 91, 230);
+            background-color: rgba(80, 162, 255, 0.2);
           }
+        }
+      }
+
+      &:hover,
+      &:focus-within {
+        .dropdown-menu {
+          display: block; /* 桌基板 hover 或 focus 顯示 */
+        }
+      }
+
+      &.mobile-active {
+        .dropdown-menu {
+          display: block;
+          position: relative;
         }
       }
     }
@@ -68,27 +99,52 @@
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+    z-index: 2;
 
     .links {
       display: flex;
       flex-direction: column;
       gap: 10px;
+
+      .dropdown {
+        &-toggle {
+          .arrow {
+            display: inline-block;
+          }
+        }
+      }
     }
   }
 
   .mobile-menu.active {
-    display: flex;
+    display: flex !important;
   }
 
   @media (max-width: $mobile-breakpoint) {
-    // justify-content: flex-end;
-
     .links {
       display: none;
     }
 
     .hamburger {
       display: block;
+    }
+
+    .dropdown {
+      &:hover {
+        .dropdown-menu {
+          display: none; /* 禁用手機版的 hover 展開 */
+          width: 100%;
+          background-color: white;
+          & > li {
+            background-color: #eeeeee;
+          }
+        }
+      }
+
+      &-menu {
+        margin: 10px;
+        padding: 10px;
+      }
     }
   }
 
@@ -99,6 +155,25 @@
 
     .links {
       display: flex !important;
+
+      .dropdown {
+        &:hover,
+        &:focus-within {
+          .dropdown-menu {
+            display: block !important; /* 桌基板 hover 或 focus 顯示 */
+          }
+        }
+
+        &-menu:hover {
+          display: block !important; /* 保持當滑鼠移到 menu 上時不關閉 */
+        }
+
+        &-toggle {
+          .arrow {
+            display: none !important;
+          }
+        }
+      }
     }
   }
 }
