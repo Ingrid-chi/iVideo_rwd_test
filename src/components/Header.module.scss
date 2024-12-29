@@ -9,33 +9,59 @@
   position: relative;
 
   .logo {
-    // font-size: 24px;
-    // font-weight: bold;
-    // text-align: center;
     width: 250px;
+    height: auto;
   }
 
-  .auth {
-    display: flex;
-    gap: 10px;
+  .buttonWrap {
+    display: grid;
+    justify-items: end;
+    // row-gap: 8px;
 
-    .login,
-    .signup {
-      padding: 8px 16px;
-      border: 1px solid $text-color;
-      border-radius: 4px;
-      text-decoration: none;
-      color: $text-color;
-      cursor: pointer;
+    .auth {
+      display: flex;
+      column-gap: 8px;
 
-      &:hover {
-        background-color: $bg-color;
+      .login,
+      .signup {
+        margin-top: 8px;
+        padding: 8px 16px;
+        border: 1px solid $text-color;
+        border-radius: 4px;
+        text-decoration: none;
+        color: $text-color;
+        cursor: pointer;
+
+        &:hover {
+          color: white;
+          background-color: rgb(45, 91, 230);
+        }
+      }
+
+      .signup {
+        background-color: $text-color;
+        color: white;
       }
     }
 
-    .signup {
-      background-color: $text-color;
-      color: white;
+    .community {
+      display: grid;
+      grid-column-gap: 8px;
+      grid-template-columns: repeat(4, 1fr);
+      padding-top: 16px;
+      & img {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+
+        &:hover {
+          width: 40px;
+          height: 40px;
+          padding: 2px;
+          border: 2px solid rgb(45, 91, 230);
+          background-color: rgba(80, 162, 255, 0.2);
+        }
+      }
     }
   }
 
@@ -49,15 +75,20 @@
     background-color: $bg-color;
     position: relative;
 
-    .auth {
-      margin-top: 10px;
-      // flex-direction: column;
-      gap: 10px;
+    .buttonWrap {
+      .auth {
+        .login,
+        .signup {
+          padding: 4px 8px;
+          font-size: 14px;
+        }
+      }
 
-      .login,
-      .signup {
-        padding: 4px 8px;
-        font-size: 14px;
+      .community {
+        & img {
+          width: 32px;
+          height: 32px;
+        }
       }
     }
 
